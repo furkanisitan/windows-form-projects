@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70EB7737-8376-4A0A-8B3A-E851B1FF00DA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>YemekhaneOtomasyonu</RootNamespace>
+    <AssemblyName>YemekhaneOtomasyonu</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAO.cs" />
+    <Compile Include="Form%28Main%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%28Main%29.Designer.cs">
+      <DependentUpon>Form%28Main%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGorus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGorus.Designer.cs">
+      <DependentUpon>FormGorus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenuEkleGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenuEkleGuncelle.designer.cs">
+      <DependentUpon>FormMenuEkleGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPersonel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPersonel.designer.cs">
+      <DependentUpon>FormPersonel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPersonelSifreGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPersonelSifreGuncelle.Designer.cs">
+      <DependentUpon>FormPersonelSifreGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGiseIslemleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGiseIslemleri.designer.cs">
+      <DependentUpon>FormGiseIslemleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormKullaniciIslemleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKullaniciIslemleri.designer.cs">
+      <DependentUpon>FormKullaniciIslemleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPersonelIslemleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPersonelIslemleri.designer.cs">
+      <DependentUpon>FormPersonelIslemleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FormYemek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormYemek.designer.cs">
+      <DependentUpon>FormYemek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormYemekEkleGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormYemekEkleGuncelle.designer.cs">
+      <DependentUpon>FormYemekEkleGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormYemekKategori.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormYemekKategori.designer.cs">
+      <DependentUpon>FormYemekKategori.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form%28Main%29.resx">
+      <DependentUpon>Form%28Main%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGorus.resx">
+      <DependentUpon>FormGorus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenuEkleGuncelle.resx">
+      <DependentUpon>FormMenuEkleGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPersonel.resx">
+      <DependentUpon>FormPersonel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPersonelSifreGuncelle.resx">
+      <DependentUpon>FormPersonelSifreGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGiseIslemleri.resx">
+      <DependentUpon>FormGiseIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKullaniciIslemleri.resx">
+      <DependentUpon>FormKullaniciIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPersonelIslemleri.resx">
+      <DependentUpon>FormPersonelIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormYemek.resx">
+      <DependentUpon>FormYemek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormYemekEkleGuncelle.resx">
+      <DependentUpon>FormYemekEkleGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormYemekKategori.resx">
+      <DependentUpon>FormYemekKategori.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
