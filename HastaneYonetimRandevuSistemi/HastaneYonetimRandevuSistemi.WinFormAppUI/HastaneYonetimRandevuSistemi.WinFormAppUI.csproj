@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C8FE310E-9A79-40D6-A1E8-6CCCA0B0776E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HastaneYonetimRandevuSistemi.WinFormAppUI</RootNamespace>
+    <AssemblyName>HastaneYonetimRandevuSistemi.WinFormAppUI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EnumStringValues, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnumStringValues.3.0.0\lib\net461\EnumStringValues.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnnouncementForms\AnnouncementUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnnouncementForms\AnnouncementUpdateForm.designer.cs">
+      <DependentUpon>AnnouncementUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentForms\AppointmentUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppointmentForms\AppointmentUpdateForm.designer.cs">
+      <DependentUpon>AppointmentUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BranchForms\BranchAddOrUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BranchForms\BranchAddOrUpdateForm.designer.cs">
+      <DependentUpon>BranchAddOrUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\CustomMethods\BranchMethods.cs" />
+    <Compile Include="Library\CustomMethods\MyMethods.cs" />
+    <Compile Include="Library\Enums\PersonTypeEnum.cs" />
+    <Compile Include="DoctorForms\DoctorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorForms\DoctorForm.designer.cs">
+      <DependentUpon>DoctorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorForms\DoctorAddOrUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorForms\DoctorAddOrUpdateForm.designer.cs">
+      <DependentUpon>DoctorAddOrUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\CustomHandlerMethods\BranchHandler.cs" />
+    <Compile Include="Library\ExceptionHandling\CrudHandler.cs" />
+    <Compile Include="Library\ExceptionHandling\ExceptionHandlingResult.cs" />
+    <Compile Include="SecretaryForms\SecretaryUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecretaryForms\SecretaryUpdateForm.designer.cs">
+      <DependentUpon>SecretaryUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecretaryQuickAccessForms\SecretaryAnnouncementListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecretaryQuickAccessForms\SecretaryAnnouncementListForm.designer.cs">
+      <DependentUpon>SecretaryAnnouncementListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecretaryQuickAccessForms\SecretaryAppointmentListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecretaryQuickAccessForms\SecretaryAppointmentListForm.designer.cs">
+      <DependentUpon>SecretaryAppointmentListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecretaryQuickAccessForms\SecretaryBranchPanelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecretaryQuickAccessForms\SecretaryBranchPanelForm.designer.cs">
+      <DependentUpon>SecretaryBranchPanelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecretaryQuickAccessForms\SecretaryDoctorPanelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecretaryQuickAccessForms\SecretaryDoctorPanelForm.designer.cs">
+      <DependentUpon>SecretaryDoctorPanelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecretaryForms\SecretaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecretaryForms\SecretaryForm.designer.cs">
+      <DependentUpon>SecretaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientForms\PatientAddOrUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientForms\PatientAddOrUpdateForm.designer.cs">
+      <DependentUpon>PatientAddOrUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientForms\PatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientForms\PatientForm.designer.cs">
+      <DependentUpon>PatientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AnnouncementForms\AnnouncementUpdateForm.resx">
+      <DependentUpon>AnnouncementUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppointmentForms\AppointmentUpdateForm.resx">
+      <DependentUpon>AppointmentUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BranchForms\BranchAddOrUpdateForm.resx">
+      <DependentUpon>BranchAddOrUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorForms\DoctorForm.resx">
+      <DependentUpon>DoctorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorForms\DoctorAddOrUpdateForm.resx">
+      <DependentUpon>DoctorAddOrUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecretaryForms\SecretaryUpdateForm.resx">
+      <DependentUpon>SecretaryUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecretaryQuickAccessForms\SecretaryAnnouncementListForm.resx">
+      <DependentUpon>SecretaryAnnouncementListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecretaryQuickAccessForms\SecretaryAppointmentListForm.resx">
+      <DependentUpon>SecretaryAppointmentListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecretaryQuickAccessForms\SecretaryBranchPanelForm.resx">
+      <DependentUpon>SecretaryBranchPanelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecretaryQuickAccessForms\SecretaryDoctorPanelForm.resx">
+      <DependentUpon>SecretaryDoctorPanelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecretaryForms\SecretaryForm.resx">
+      <DependentUpon>SecretaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientForms\PatientAddOrUpdateForm.resx">
+      <DependentUpon>PatientAddOrUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientForms\PatientForm.resx">
+      <DependentUpon>PatientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HastaneYonetimRandevuSistemi.Business\HastaneYonetimRandevuSistemi.Business.csproj">
+      <Project>{CDBEE034-EC3C-4034-94CF-B56D0DDA07D9}</Project>
+      <Name>HastaneYonetimRandevuSistemi.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HastaneYonetimRandevuSistemi.Entities\HastaneYonetimRandevuSistemi.Entities.csproj">
+      <Project>{DBC6269B-434B-408E-BCC5-AC073B29F7ED}</Project>
+      <Name>HastaneYonetimRandevuSistemi.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
