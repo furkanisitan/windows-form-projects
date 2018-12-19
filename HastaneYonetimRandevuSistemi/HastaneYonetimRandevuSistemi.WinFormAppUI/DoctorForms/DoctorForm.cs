@@ -34,8 +34,11 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.DoctorForms
             SetDiseaseDescription(0);
         }
 
-        private void DoctorForm_FormClosed(object sender, FormClosedEventArgs e) =>
-            Application.Exit();
+        private void DoctorForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Hide();
+            (Application.OpenForms[nameof(MainForm)] ?? new MainForm()).Show();
+        }
 
         private void lnkUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) =>
             new DoctorAddOrUpdateForm(_id).ShowDialog();
@@ -62,14 +65,14 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.DoctorForms
             SetDoctorInfo(_doctor);
         }
 
-        private void dgvAppointments_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dgvAppointments_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             SetDiseaseDescription(e.RowIndex);
         }
 
         private void SetDiseaseDescription(int rowIndex)
         {
-            if (rowIndex >= dgvAppointments.RowCount) return;
+            if (rowIndex < 0 || rowIndex >= dgvAppointments.RowCount) return;
             var row = dgvAppointments.Rows[rowIndex];
             richTextBox1.Text = row.Cells["DiseaseDescription"].Value?.ToString();
         }
@@ -81,7 +84,13 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.DoctorForms
             if (btnName == btnAnnouncement.Name)
                 new SecretaryAnnouncementListForm(PersonTypeEnum.Doctor).ShowDialog();
             else
-                Application.Exit();
+            {
+                Hide();
+                (Application.OpenForms[nameof(MainForm)] ?? new MainForm()).Show();
+            }
+
         }
+
+
     }
 }

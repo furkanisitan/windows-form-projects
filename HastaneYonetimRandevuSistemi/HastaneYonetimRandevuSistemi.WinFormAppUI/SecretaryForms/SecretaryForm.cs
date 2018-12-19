@@ -36,8 +36,12 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.SecretaryForms
             InitializeComponent();
         }
 
-        private void SecretaryForm_FormClosed(object sender, FormClosedEventArgs e) =>
-            Application.Exit();
+        private void SecretaryForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Hide();
+            (Application.OpenForms[nameof(MainForm)] ?? new MainForm()).Show();
+
+        }
 
         private void SecretaryForm_Load(object sender, EventArgs e)
         {
@@ -46,6 +50,8 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.SecretaryForms
             BranchMethods.SetComboBox(cbBranches);
 
             ComboBox_SelectedIndexChanged(cbBranches, null);
+            cbHour.SelectedIndex = 0;
+            cbMinute.SelectedIndex = 0;
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -70,7 +76,7 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.SecretaryForms
         {
             var btnName = ((Button)sender).Name;
 
-            if (btnName == btnDoctor.Name)
+            if (btnName == btnDoctors.Name)
                 new SecretaryDoctorPanelForm().ShowDialog();
             else if (btnName == btnBranches.Name)
                 new SecretaryBranchPanelForm().ShowDialog();
@@ -97,7 +103,7 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.SecretaryForms
             return new Appointment
             {
                 DoctorId = (int)doctorId,
-                Date = dtpAppointmentDate.Value.Date + dtpAppointmentTime.Value.TimeOfDay
+                Date = dtpAppointmentDate.Value.Date + GetSelectedTime()
             };
         }
 
@@ -111,6 +117,13 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.SecretaryForms
         {
             _secretary = SecretaryService.GetById(_id);
             SetSecretaryInfo(_secretary);
+        }
+
+        private TimeSpan GetSelectedTime()
+        {
+            var hour = int.Parse(cbHour.SelectedItem.ToString());
+            var minute = int.Parse(cbMinute.SelectedItem.ToString());
+            return new TimeSpan(hour, minute, 0);
         }
     }
 }

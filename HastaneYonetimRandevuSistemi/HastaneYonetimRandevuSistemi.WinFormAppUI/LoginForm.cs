@@ -47,15 +47,15 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI
             switch (_personTypeEnum)
             {
                 case PersonTypeEnum.Doctor when (id = DoctorService.GetId(trIdentityNo, password)) != 0:
-                    new DoctorForm(id).Show();
+                    (Application.OpenForms[nameof(DoctorForm)] ?? new DoctorForm(id)).Show();
                     SetVisibilityOfPreviousForms();
                     break;
                 case PersonTypeEnum.Patient when (id = PatientService.GetId(trIdentityNo, password)) != 0:
-                    new PatientForm(id).Show();
+                    (Application.OpenForms[nameof(PatientForm)] ?? new PatientForm(id)).Show();
                     SetVisibilityOfPreviousForms();
                     break;
                 case PersonTypeEnum.Secretary when (id = SecretaryService.GetId(trIdentityNo, password)) != 0:
-                    new SecretaryForm(id).Show();
+                    (Application.OpenForms[nameof(SecretaryForm)] ?? new SecretaryForm(id)).Show();
                     SetVisibilityOfPreviousForms();
                     break;
                 default:

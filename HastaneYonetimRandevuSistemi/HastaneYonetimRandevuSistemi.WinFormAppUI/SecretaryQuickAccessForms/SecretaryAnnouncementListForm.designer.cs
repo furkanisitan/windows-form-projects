@@ -33,6 +33,7 @@
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Announcement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnnouncements)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +47,8 @@
             this.dgvAnnouncements.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Date,
-            this.Announcement});
+            this.Announcement,
+            this.Remove});
             this.dgvAnnouncements.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAnnouncements.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAnnouncements.Location = new System.Drawing.Point(0, 0);
@@ -54,7 +56,7 @@
             this.dgvAnnouncements.RowHeadersVisible = false;
             this.dgvAnnouncements.Size = new System.Drawing.Size(433, 274);
             this.dgvAnnouncements.TabIndex = 1;
-            this.dgvAnnouncements.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAnnouncements_CellMouseDoubleClick);
+            this.dgvAnnouncements.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAnnouncements_CellContentClick);
             // 
             // Id
             // 
@@ -73,6 +75,16 @@
             // 
             this.Announcement.HeaderText = "Duyuru";
             this.Announcement.Name = "Announcement";
+            // 
+            // Remove
+            // 
+            this.Remove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Remove.HeaderText = "Sil";
+            this.Remove.Name = "Remove";
+            this.Remove.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Remove.Text = "Sil";
+            this.Remove.UseColumnTextForButtonValue = true;
+            this.Remove.Width = 29;
             // 
             // SecretaryAnnouncementListForm
             // 
@@ -99,5 +111,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Announcement;
+        private System.Windows.Forms.DataGridViewButtonColumn Remove;
     }
 }

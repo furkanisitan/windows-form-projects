@@ -49,5 +49,15 @@ namespace HastaneYonetimRandevuSistemi.DataAccess.Concrete.EntityFramework
         {
             return GetAllAppointmentDetail(filter).FirstOrDefault();
         }
+
+        public ICollection<TimeSpan> GetAllAppointmentTimeByFilter(Expression<Func<Appointment, bool>> filter = null)
+        {
+            using (var context = new DatabaseContext())
+            {
+                var list = (filter == null ? context.Set<Appointment>() : context.Set<Appointment>().Where(filter))
+                     .Select(x => DbFunctions.CreateTime(x.Date.Hour, x.Date.Minute, x.Date.Second) ?? TimeSpan.Zero).ToList();
+                return list;
+            }
+        }
     }
 }

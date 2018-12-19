@@ -7,7 +7,7 @@ using System.Linq;
 namespace HastaneYonetimRandevuSistemi.Core.Aspects.PostSharp.ValidationAspects
 {
     [Serializable]
-    public class FluentValidationAspect : OnMethodBoundaryAspect
+    public sealed class FluentValidationAspect : OnMethodBoundaryAspect
     {
         private readonly Type _validatorType;
 

@@ -27,7 +27,7 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.SecretaryQuickAccessForms
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
             var doctorId = (int)dgvDoctors.Rows[e.RowIndex].Cells["Id"].Value;
-            new DoctorAddOrUpdateForm(doctorId).ShowDialog();
+            new DoctorAddOrUpdateForm(doctorId, true).ShowDialog();
         }
 
         // Create

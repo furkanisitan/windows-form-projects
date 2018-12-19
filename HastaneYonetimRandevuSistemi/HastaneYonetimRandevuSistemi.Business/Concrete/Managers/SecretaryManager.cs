@@ -1,5 +1,5 @@
 ﻿using HastaneYonetimRandevuSistemi.Business.Abstract;
-using HastaneYonetimRandevuSistemi.Business.ValidationRules.FluentValidation;
+using HastaneYonetimRandevuSistemi.Business.ValidationRules.FluentValidation.Validators;
 using HastaneYonetimRandevuSistemi.Core.Aspects.PostSharp.ValidationAspects;
 using HastaneYonetimRandevuSistemi.DataAccess.Abstract;
 using HastaneYonetimRandevuSistemi.Entities.Concrete;

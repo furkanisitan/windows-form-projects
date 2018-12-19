@@ -4,6 +4,7 @@ using HastaneYonetimRandevuSistemi.Core.Aspects.PostSharp.ValidationAspects;
 using HastaneYonetimRandevuSistemi.DataAccess.Abstract;
 using HastaneYonetimRandevuSistemi.Entities.Concrete;
 using System.Collections.Generic;
+using HastaneYonetimRandevuSistemi.Business.ValidationRules.FluentValidation.Validators;
 
 namespace HastaneYonetimRandevuSistemi.Business.Concrete.Managers
 {

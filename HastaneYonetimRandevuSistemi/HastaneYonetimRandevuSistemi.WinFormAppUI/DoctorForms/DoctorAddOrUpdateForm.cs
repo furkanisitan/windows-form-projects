@@ -13,15 +13,18 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.DoctorForms
         private static readonly IDoctorService DoctorService;
 
         private readonly Doctor _doctor;
+        private readonly bool _isSecretary;
+
 
         static DoctorAddOrUpdateForm()
         {
             DoctorService = InstanceFactory.GetInstance<IDoctorService>();
         }
 
-        public DoctorAddOrUpdateForm(int? doctorId = null)
+        public DoctorAddOrUpdateForm(int? doctorId = null, bool isSecretary = false)
         {
             _doctor = doctorId == null ? new Doctor() : DoctorService.GetById((int)doctorId);
+            _isSecretary = isSecretary;
             InitializeComponent();
         }
 
@@ -77,6 +80,8 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.DoctorForms
             tbTrIdentityNo.Text = _doctor.TrIdentityNo;
             tbPassword.Text = _doctor.Password;
             cbBranch.SelectedValue = _doctor.BranchId;
+            if (_isSecretary)
+                tbPasswordAgain.Text = _doctor.Password;
         }
     }
 }

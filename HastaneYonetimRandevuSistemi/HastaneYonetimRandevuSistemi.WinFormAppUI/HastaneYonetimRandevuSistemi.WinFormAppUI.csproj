@@ -59,12 +59,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnnouncementForms\AnnouncementUpdateForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AnnouncementForms\AnnouncementUpdateForm.designer.cs">
-      <DependentUpon>AnnouncementUpdateForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="AppointmentForms\AppointmentUpdateForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,9 +151,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AnnouncementForms\AnnouncementUpdateForm.resx">
-      <DependentUpon>AnnouncementUpdateForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AppointmentForms\AppointmentUpdateForm.resx">
       <DependentUpon>AppointmentUpdateForm.cs</DependentUpon>
     </EmbeddedResource>

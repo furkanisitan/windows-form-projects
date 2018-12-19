@@ -12,5 +12,6 @@ namespace HastaneYonetimRandevuSistemi.DataAccess.Abstract
         ICollection<Appointment> GetAllWithPatient(Expression<Func<Appointment, bool>> filter = null);
         ICollection<AppointmentDetail> GetAllAppointmentDetail(Expression<Func<Appointment, bool>> filter = null);
         AppointmentDetail GetAppointmentDetail(Expression<Func<Appointment, bool>> filter);
+        ICollection<TimeSpan> GetAllAppointmentTimeByFilter(Expression<Func<Appointment, bool>> filter = null);
     }
 }

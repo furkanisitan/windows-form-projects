@@ -8,6 +8,6 @@ namespace HastaneYonetimRandevuSistemi.Business.Abstract
         IEnumerable<Announcement> GetAll();
         Announcement GetById(int id);
         void Add(Announcement announcement);
-        void Update(Announcement announcement);
+        void DeleteById(int id);
     }
 }

@@ -13,6 +13,8 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.PatientForms
     {
         private static readonly IAppointmentService AppointmentService;
         private static readonly IPatientService PatientService;
+        private static readonly DataGridViewCellStyle CellStyle = 
+            new DataGridViewCellStyle { Padding = new Padding(0, 25, 0, 0) };
 
         private readonly BranchHandler _branchHandler;
 
@@ -33,8 +35,11 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.PatientForms
             InitializeComponent();
         }
 
-        private void PatientForm_FormClosed(object sender, FormClosedEventArgs e) =>
-            Application.Exit();
+        private void PatientForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Hide();
+            (Application.OpenForms[nameof(MainForm)] ?? new MainForm()).Show();
+        }
 
         private void PatientForm_Load(object sender, EventArgs e)
         {
@@ -48,7 +53,14 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.PatientForms
 
         private void btnGetAppointment_Click(object sender, EventArgs e)
         {
-            var result = CrudHandler.AddOrUpdate(() => { AppointmentService.Update(GetAppointmentInstance()); });
+            if (dgvAppointments.SelectedCells.Count < 1) return;
+
+            var appointmentId = (int)dgvAppointments.SelectedCells[0].Value;
+            var result = CrudHandler.AddOrUpdate(() =>
+            {
+                AppointmentService.Update(
+                    CreateAppointmentInstance(appointmentId, _patient.Id, rtbComplaint.Text));
+            });
             MyMethods.ShowMessageBox(result);
             if (!result.IsSuccess) return;
             ResetAppointmentPreferences();
@@ -84,10 +96,39 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.PatientForms
             btnGetAppointment.Enabled = cbDoctors.Items.Count > 0;
         }
 
+        private void Dgv_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Name.Equals(dgvAppointments.Name))
+                dgvMyAppointments.ClearSelection();
+            else
+                dgvAppointments.ClearSelection();
+        }
+
+        private void dgvMyAppointments_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn) || e.RowIndex < 0) return;
+
+            var id = (int)senderGrid.Rows[e.RowIndex].Cells[0].Value;
+            var appointment = AppointmentService.GetById(id);
+            appointment.PatientId = null;
+            var result = CrudHandler.AddOrUpdate(() =>
+            {
+                AppointmentService.Update(
+                    CreateAppointmentInstance(id, null, null));
+            });
+            MyMethods.ShowMessageBox(result);
+            if (!result.IsSuccess) return;
+            senderGrid.Rows.RemoveAt(e.RowIndex);
+            ComboBox_SelectedIndexChanged(cbDoctors, null);
+        }
+
         private void SetDgvAppointments(int doctorId)
         {
             dgvAppointments.Rows.Clear();
-            var list = AppointmentService.GetAllAppointmentDetail(x => x.DoctorId == doctorId && x.PatientId == null);
+            var list = AppointmentService.GetAllAppointmentDetail(x => x.DoctorId == doctorId && x.PatientId == null && x.Date > DateTime.Now);
             foreach (var appointmentDetail in list)
                 dgvAppointments.Rows.Add(appointmentDetail.Id, appointmentDetail.DoctorName,
                     appointmentDetail.BranchName, appointmentDetail.Date.ToShortDateString(),
@@ -98,9 +139,17 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.PatientForms
         {
             dgvMyAppointments.Rows.Clear();
             var list = AppointmentService.GetAllAppointmentDetail(x => x.PatientId == patientId);
+
+            var i = 0;
+            var lastColumnIndex = dgvMyAppointments.Columns.Count - 1;
             foreach (var appointmentDetail in list)
-                dgvMyAppointments.Rows.Add(appointmentDetail.DoctorName, appointmentDetail.BranchName,
+            {
+                dgvMyAppointments.Rows.Add(appointmentDetail.Id, appointmentDetail.DoctorName, appointmentDetail.BranchName,
                     appointmentDetail.Date.ToShortDateString(), appointmentDetail.Date.ToShortTimeString());
+
+                if (appointmentDetail.Date < DateTime.Now)
+                    dgvMyAppointments.Rows[i++].Cells[lastColumnIndex].Style = CellStyle;
+            }
         }
 
         private void SetPatientInfo(Patient patient)
@@ -116,19 +165,16 @@ namespace HastaneYonetimRandevuSistemi.WinFormAppUI.PatientForms
             rtbComplaint.Text = string.Empty;
         }
 
-        private Appointment GetAppointmentInstance()
+        private Appointment CreateAppointmentInstance(int id, int? patientId, string diseaseDescription)
         {
-            var appointmentId = (int)dgvAppointments.SelectedCells[0].Value;
-            var appointment = AppointmentService.GetById(appointmentId);
-            appointment.PatientId = _patient.Id;
-            appointment.DiseaseDescription = rtbComplaint.Text;
+            var appointment = AppointmentService.GetById(id);
             return new Appointment
             {
                 Id = appointment.Id,
                 Date = appointment.Date,
-                PatientId = appointment.PatientId,
                 DoctorId = appointment.DoctorId,
-                DiseaseDescription = appointment.DiseaseDescription,
+                PatientId = patientId,
+                DiseaseDescription = diseaseDescription
             };
         }
 

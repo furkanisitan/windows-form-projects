@@ -16,7 +16,7 @@ namespace HastaneYonetimRandevuSistemi.DataAccess.Concrete.EntityFramework.Confi
 
         public DatabaseContext()
         {
-            Database.SetInitializer(new SampleDatabase1());
+            Database.SetInitializer(new SampleDatabase3());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

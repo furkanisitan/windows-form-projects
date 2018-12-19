@@ -84,7 +84,7 @@
             this.dgvAppointments.RowHeadersVisible = false;
             this.dgvAppointments.Size = new System.Drawing.Size(448, 287);
             this.dgvAppointments.TabIndex = 0;
-            this.dgvAppointments.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAppointments_CellMouseClick);
+            this.dgvAppointments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAppointments_CellContentClick);
             // 
             // Id
             // 
@@ -121,7 +121,7 @@
             this.groupBox2.Size = new System.Drawing.Size(267, 129);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Hasta Şikayet";
+            this.groupBox2.Text = "Hastalık Şikayeti";
             // 
             // richTextBox1
             // 

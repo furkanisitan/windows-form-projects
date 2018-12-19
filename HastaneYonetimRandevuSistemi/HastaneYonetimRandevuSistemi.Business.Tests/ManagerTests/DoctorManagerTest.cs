@@ -1,9 +1,7 @@
 ﻿using HastaneYonetimRandevuSistemi.Business.Abstract;
 using HastaneYonetimRandevuSistemi.Business.DependencyResolvers.Ninject;
-using HastaneYonetimRandevuSistemi.Entities.Concrete;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Linq;
 
 namespace HastaneYonetimRandevuSistemi.Business.Tests.ManagerTests
 {
@@ -49,6 +47,5 @@ namespace HastaneYonetimRandevuSistemi.Business.Tests.ManagerTests
 
             //Assert.IsFalse(branch.Doctors.Select(x => x.Id).Contains(doctor.Id));
         }
-
     }
 }

@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bogus, Version=24.2.0.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bogus.24.2.0\lib\net40\Bogus.dll</HintPath>
+    <Reference Include="Bogus, Version=25.0.2.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bogus.25.0.2\lib\net40\Bogus.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -58,6 +58,7 @@
     <Compile Include="Abstract\IPatientDal.cs" />
     <Compile Include="Abstract\ISecretaryDal.cs" />
     <Compile Include="Concrete\EntityFramework\Configuration\DatabaseContext.cs" />
+    <Compile Include="Concrete\EntityFramework\Configuration\SampleDatabases\SampleDatabase3.cs" />
     <Compile Include="Concrete\EntityFramework\EfAnnouncementDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfAppointmentDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfBranchDal.cs" />

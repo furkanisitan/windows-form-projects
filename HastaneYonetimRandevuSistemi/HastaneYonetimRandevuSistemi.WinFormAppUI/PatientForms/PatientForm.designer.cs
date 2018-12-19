@@ -45,10 +45,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvMyAppointments = new System.Windows.Forms.DataGridView();
+            this.My_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.My_DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.My_BranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.My_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.My_Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgvAppointments = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -220,14 +222,17 @@
             // 
             this.dgvMyAppointments.AllowUserToAddRows = false;
             this.dgvMyAppointments.AllowUserToDeleteRows = false;
+            this.dgvMyAppointments.AllowUserToResizeRows = false;
             this.dgvMyAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMyAppointments.BackgroundColor = System.Drawing.Color.White;
             this.dgvMyAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMyAppointments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.My_Id,
             this.My_DoctorName,
             this.My_BranchName,
             this.My_Date,
-            this.My_Time});
+            this.My_Time,
+            this.Remove});
             this.dgvMyAppointments.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMyAppointments.Location = new System.Drawing.Point(3, 21);
             this.dgvMyAppointments.Name = "dgvMyAppointments";
@@ -235,6 +240,15 @@
             this.dgvMyAppointments.RowHeadersVisible = false;
             this.dgvMyAppointments.Size = new System.Drawing.Size(744, 159);
             this.dgvMyAppointments.TabIndex = 0;
+            this.dgvMyAppointments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMyAppointments_CellContentClick);
+            this.dgvMyAppointments.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellEnter);
+            // 
+            // My_Id
+            // 
+            this.My_Id.HeaderText = "Id";
+            this.My_Id.Name = "My_Id";
+            this.My_Id.ReadOnly = true;
+            this.My_Id.Visible = false;
             // 
             // My_DoctorName
             // 
@@ -259,6 +273,17 @@
             this.My_Time.HeaderText = "Saat";
             this.My_Time.Name = "My_Time";
             this.My_Time.ReadOnly = true;
+            // 
+            // Remove
+            // 
+            this.Remove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Remove.HeaderText = "";
+            this.Remove.Name = "Remove";
+            this.Remove.ReadOnly = true;
+            this.Remove.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Remove.Text = "iptal";
+            this.Remove.UseColumnTextForButtonValue = true;
+            this.Remove.Width = 5;
             // 
             // groupBox4
             // 
@@ -290,6 +315,7 @@
             this.dgvAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAppointments.Size = new System.Drawing.Size(741, 178);
             this.dgvAppointments.TabIndex = 1;
+            this.dgvAppointments.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellEnter);
             // 
             // Id
             // 
@@ -372,14 +398,16 @@
         private System.Windows.Forms.RichTextBox rtbComplaint;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvAppointments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn My_DoctorName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn My_BranchName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn My_Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn My_Time;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn DoctorName;
         private System.Windows.Forms.DataGridViewTextBoxColumn BranchName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn My_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn My_DoctorName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn My_BranchName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn My_Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn My_Time;
+        private System.Windows.Forms.DataGridViewButtonColumn Remove;
     }
 }
